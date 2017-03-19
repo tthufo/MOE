@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MOE_Example' do
+  pod 'MOE', :path => '../'
+
+  target 'MOE_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
