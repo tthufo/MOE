@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Native binding for MOE
+Native binding for MOE, hand crafted
                        DESC
 
   s.homepage         = 'https://github.com/tthufo/MOE'
@@ -31,7 +31,12 @@ Native binding for MOE
   s.ios.deployment_target = '7.0'
 
   s.source_files = 'MOE/Classes/**/*'
-  
+
+s.dependency 'FBSDKCoreKit', '~> 4.4'
+s.dependency 'FBSDKLoginKit', '~> 4.4'
+s.dependency 'FBSDKShareKit', '~> 4.4'
+s.dependency 'IAPHelper', '~> 1.1'
+
   # s.resource_bundles = {
   #   'MOE' => ['MOE/Assets/*.png']
   # }
