@@ -1,8 +1,8 @@
 {
   "name": "MOE",
   "version": "0.1.0",
-  "summary": "A short description of MOE.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Native binding for MOE",
+  "description": "Native binding for MOE, hand crafted",
   "homepage": "https://github.com/tthufo/MOE",
   "license": {
     "type": "MIT",
@@ -16,7 +16,21 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "7.0"
   },
-  "source_files": "MOE/Classes/**/*"
+  "source_files": "MOE/Classes/**/*",
+  "dependencies": {
+    "FBSDKCoreKit": [
+      "~> 4.4"
+    ],
+    "FBSDKLoginKit": [
+      "~> 4.4"
+    ],
+    "FBSDKShareKit": [
+      "~> 4.4"
+    ],
+    "IAPHelper": [
+      "~> 1.1"
+    ]
+  }
 }
