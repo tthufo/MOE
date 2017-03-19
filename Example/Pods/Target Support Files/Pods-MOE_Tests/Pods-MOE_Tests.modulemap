@@ -1,0 +1,6 @@
+framework module Pods_MOE_Tests {
+  umbrella header "Pods-MOE_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

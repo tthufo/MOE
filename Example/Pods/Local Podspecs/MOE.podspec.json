@@ -1,0 +1,22 @@
+{
+  "name": "MOE",
+  "version": "0.1.0",
+  "summary": "A short description of MOE.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/tthufo/MOE",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "tthufo": "tthufo@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/tthufo/MOE.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MOE/Classes/**/*"
+}

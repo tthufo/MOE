@@ -1,0 +1,6 @@
+framework module Pods_MOE_Example {
+  umbrella header "Pods-MOE_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
