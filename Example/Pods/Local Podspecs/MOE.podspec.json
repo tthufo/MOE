@@ -18,7 +18,7 @@
   "platforms": {
     "ios": "7.0"
   },
-  "source_files": "MOE/Classes/**/*",
+  "source_files": "MOE/Classes",
   "dependencies": {
     "FBSDKCoreKit": [
       "~> 4.4"
@@ -32,5 +32,13 @@
     "IAPHelper": [
       "~> 1.1"
     ]
-  }
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "MOE": [
+      "MOE/Assets/*"
+    ]
+  },
+  "resources": "MOE/Assets/*",
+  "public_header_files": "MOE/Classes/*.h"
 }

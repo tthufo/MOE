@@ -20,6 +20,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (IBAction)didFace:(id)sender
+{
+    [[FacebookMOE shareInstance] startLoginFacebookWithCompletion:^(NSString *responseString, id object, int errorCode, NSString *description, NSError *error) {
+        
+        NSLog(@"%@", responseString);
+        
+    }];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

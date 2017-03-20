@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MOE'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Native binding for MOE'
 
 # This description is used to generate tags and improve search results.
@@ -30,12 +30,23 @@ Native binding for MOE, hand crafted
 
   s.ios.deployment_target = '7.0'
 
-  s.source_files = 'MOE/Classes/**/*'
+s.source_files = 'MOE/Classes'
 
 s.dependency 'FBSDKCoreKit', '~> 4.4'
 s.dependency 'FBSDKLoginKit', '~> 4.4'
 s.dependency 'FBSDKShareKit', '~> 4.4'
 s.dependency 'IAPHelper', '~> 1.1'
+
+s.requires_arc = true
+
+s.resource_bundles = {
+'MOE' => ['MOE/Assets/*']
+}
+
+s.resources = 'MOE/Assets/*'
+
+s.public_header_files = 'MOE/Classes/*.h'
+
 
   # s.resource_bundles = {
   #   'MOE' => ['MOE/Assets/*.png']
