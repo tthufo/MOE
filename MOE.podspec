@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MOE'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Native binding for MOE'
 
 # This description is used to generate tags and improve search results.
@@ -39,11 +39,11 @@ s.dependency 'IAPHelper', '~> 1.1'
 
 s.requires_arc = true
 
-s.resource_bundles = {
-'MOE' => ['MOE/Assets/*']
-}
+#s.resource_bundles = {
+#'MOE' => ['MOE/Assets/*']
+#}
 
-s.resources = 'MOE/Assets/*'
+#s.resources = 'MOE/Assets/*'
 
 s.public_header_files = 'MOE/Classes/*.h'
 
