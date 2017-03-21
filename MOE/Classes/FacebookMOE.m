@@ -18,7 +18,7 @@
 
 static FacebookMOE * instance = nil;
 
-@interface FacebookMOE ()<FBSDKSharingDelegate>
+@interface FacebookMOE ()
 {
     NSString * non, * sign, * token, * stamp;
 }
@@ -40,102 +40,6 @@ static FacebookMOE * instance = nil;
         instance = [FacebookMOE new];
     }
     return instance;
-}
-
-- (void)startPickImageWithOption:(BOOL)isCamera andBase:(UIView*)baseView andRoot:(UIViewController*)base andCompletion:(FBCompletion)completion
-{
-    completionBlock = completion;
-    
-    UIImagePickerController * ipc = [[UIImagePickerController alloc] init];
-    
-    ipc.delegate = self;
-    
-    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] && isCamera)
-    {
-        NSLog(@"Cam not present");
-        
-        return;
-    }
-    
-    ipc.sourceType = !isCamera ? UIImagePickerControllerSourceTypeSavedPhotosAlbum : UIImagePickerControllerSourceTypeCamera;
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        [base presentViewController:ipc animated:YES completion:nil];
-    }
-    else
-    {
-        CGRect rect ;
-        
-        if(!baseView)
-        {
-            rect = CGRectMake(base.view.frame.size.width/2, base.view.frame.size.height/2, 0, 0);
-        }
-        else
-        {
-            rect = baseView.frame;
-        }
-        
-        if(!popover)
-            popover = [[UIPopoverController alloc] initWithContentViewController:ipc];
-        
-        [popover presentPopoverFromRect:rect inView:base.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
-}
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        [picker dismissViewControllerAnimated:YES completion:nil];
-    }
-    else
-    {
-        [popover dismissPopoverAnimated:YES];
-    }
-    
-    completionBlock(nil, [info objectForKey:UIImagePickerControllerOriginalImage], 1, @"done", nil);
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    completionBlock(nil, nil, -1, @"cancel", nil);
-}
-
-- (void)startShareWithInfo:(NSArray*)items andBase:(UIView*)baseView andRoot:(UIViewController*)base andCompletion:(FBCompletion)completion
-{
-    completionBlock = completion;
-    
-    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        [base presentViewController:activityController animated:YES completion:nil];
-    }
-    else
-    {
-        CGRect rect ;
-        
-        if(!baseView)
-        {
-            rect = CGRectMake(base.view.frame.size.width/2, base.view.frame.size.height/2, 0, 0);
-        }
-        else
-        {
-            rect = baseView.frame;
-        }
-        
-        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:activityController];
-        
-        [popup presentPopoverFromRect:rect inView:base.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
-    [activityController setCompletionHandler:^(NSString *activityType, BOOL completed) {
-        
-        completionBlock(nil, nil, completed ? 1 : -1, @"done", nil);
-        
-    }];
 }
 
 - (void)startLoginFacebookWithCompletion:(FBCompletion)completion
