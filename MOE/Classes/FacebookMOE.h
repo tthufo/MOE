@@ -21,8 +21,6 @@ typedef void (^FBCompletion)(NSString * responseString, id object, int errorCode
 - (void)signoutFacebook;
 - (void)startLoginFacebookWithCompletion:(FBCompletion)completion;
 
-- (void)didShareFacebook:(NSDictionary*)dict andCompletion:(FBCompletion)completion;
-
 - (void)startLoginTwitterWithCompletion:(FBCompletion)completion;
 
 - (void)application_Twitter:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
